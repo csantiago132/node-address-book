@@ -9,6 +9,7 @@ const inquirer = require('inquirer');
         message: "Please choose from an option below: ",
         choices: [
           "Add New Contact",
+          "Just want to know the date",
           "Exit"
         ]
       }
@@ -28,6 +29,9 @@ const inquirer = require('inquirer');
           case "Exit":
             this.exit();
             break;
+          case "Just want to know the date":
+            this.getDate();
+            break;
           default:
             console.log("Invalid input");
             this.main();
@@ -40,6 +44,27 @@ const inquirer = require('inquirer');
 
   clear(){
     console.log("\x1Bc");
+  }
+
+  getDate(){
+    // see why the "+1" 
+    // https://skillcrush.com/2013/01/17/why-programmers-start-counting-at-zero/
+    const setDate = new Date();
+    const date = {
+      day: `${setDate.getDate()}`,
+      month: `${setDate.getMonth() + 1}`,
+      year: `${setDate.getFullYear()}`,
+      hours: `${setDate.getHours()}`,
+      minutes: `${setDate.getMinutes()}`,
+      seconds: `${setDate.getSeconds()}`
+    };
+    const monthFormat = `${date.day}/${date.month}/${date.year}`;
+    const timeFormat = `${date.hours}:${date.minutes}:${date.seconds}`
+    const printDateOnConsole = `Today's date: ${monthFormat} @ ${timeFormat}`; 
+    
+    this.clear();
+    console.log(printDateOnConsole);
+    this.main();
   }
 
   addContact(){
