@@ -77,4 +77,8 @@ const inquirer = require('inquirer');
     console.log("Thanks for using Node Address Book!");
     process.exit();
   }
+
+  getContactCount(){
+    return this.contacts.length;
+  }
  }
