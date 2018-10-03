@@ -16,4 +16,10 @@ describe('MenuController', () => {
       expect(this.menu.getContactCount()).toBe(1)
     });
   });
+
+  describe('remindMe() method', () => {
+    it('should return "Learning is a life-long pursuit"', () => {
+      expect(this.menu.remindMe()).toEqual('Learning is a life-long pursuit');
+    })
+  })
 });
