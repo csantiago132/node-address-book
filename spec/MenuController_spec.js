@@ -12,7 +12,7 @@ describe('MenuController', () => {
     });
 
     it("should return 1 when there is exactly one contact in the book", () => {
-      menu.contacts.push("Bob");
+      this.menu.contacts.push("Bob");
       expect(this.menu.getContactCount()).toBe(1)
     });
   });
