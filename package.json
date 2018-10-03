@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/csantiago132/node-address-book#readme",
   "dependencies": {
+    "inquirer": "^5.1.0",
     "node": "^10.11.0",
     "save": "^2.3.2"
   }
