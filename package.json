@@ -1,0 +1,29 @@
+{
+  "name": "node-address-book",
+  "version": "1.0.0",
+  "description": "An address book application that will allow you to store and retrieve contacts by using the command line application (CLI) using Node",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csantiago132/node-address-book.git"
+  },
+  "keywords": [
+    "nodejs",
+    "node",
+    "address-book",
+    "cli"
+  ],
+  "author": "Carlos Santiago",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/csantiago132/node-address-book/issues"
+  },
+  "homepage": "https://github.com/csantiago132/node-address-book#readme",
+  "dependencies": {
+    "node": "^10.11.0",
+    "save": "^2.3.2"
+  }
+}
