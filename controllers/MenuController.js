@@ -8,7 +8,13 @@ module.exports = class MenuController {
         type: 'list',
         name: 'mainMenuChoice',
         message: 'Please choose from an option below: ',
-        choices: ['Add New Contact', 'Just want to know the date', 'Exit'],
+        choices: [
+          'Add New Contact',
+          'View All Contacts',
+          'Search for Contact',
+          'Just want to know the date',
+          'Exit',
+        ],
       },
     ];
     this.book = new ContactController();
@@ -22,6 +28,12 @@ module.exports = class MenuController {
         switch (response.mainMenuChoice) {
           case 'Add New Contact':
             this.addContact();
+            break;
+          case 'View All Contacts':
+            this.getContacts();
+            break;
+          case 'Search for Contact':
+            this.search();
             break;
           case 'Exit':
             this.exit();
@@ -83,6 +95,96 @@ module.exports = class MenuController {
   exit() {
     console.log('Thanks for using Node Address Book!');
     process.exit();
+  }
+
+  getContacts() {
+    this.clear();
+    this.book
+      .getContacts()
+      .then((contacts) => {
+        for (let contact of contacts) {
+          console.log(`
+        name: ${contact.name}
+        phone number: ${contact.phone}
+        email: ${contact.email}
+        ---------------`);
+        }
+        this.main();
+      })
+      .catch((error) => {
+        console.log(error);
+        this.main();
+      });
+  }
+
+  search() {
+    inquirer
+      .prompt(this.book.searchQuestions)
+      .then((target) => {
+        this.book.search(target.name).then((contact) => {
+          if (contact === null) {
+            this.clear();
+            console.log('contact not found');
+            this.search();
+          } else {
+            this.showContact(contact);
+          }
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        this.main();
+      });
+  }
+
+  showContact(contact) {
+    this._printContact(contact);
+    inquirer
+      .prompt(this.book.showContactQuestions)
+      .then((answer) => {
+        switch (answer.selected) {
+          case 'Delete contact':
+            this.delete(contact);
+            break;
+          case 'Main menu':
+            this.main();
+            break;
+          default:
+            console.log('Something went wrong.');
+            this.showContact(contact);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        this.showContact(contact);
+      });
+  }
+
+  _printContact(contact) {
+    console.log(`
+    name: ${contact.name}
+    phone number: ${contact.phone}
+    email: ${contact.email}
+    ---------------`);
+  }
+
+  delete(contact) {
+    inquirer
+      .prompt(this.book.deleteConfirmQuestions)
+      .then((answer) => {
+        if (answer.confirmation) {
+          this.book.delete(contact.id);
+          console.log('contact deleted!');
+          this.main();
+        } else {
+          console.log('contact not deleted');
+          this.showContact(contact);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        this.main();
+      });
   }
 
   getContactCount() {
