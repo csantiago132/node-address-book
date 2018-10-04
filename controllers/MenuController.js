@@ -80,7 +80,7 @@ const ContactController = require("./ContactController");
   }
 
   getContactCount(){
-    return this.contacts.length;
+    return this.book.length;
   }
 
   remindMe() {
