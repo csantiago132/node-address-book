@@ -146,7 +146,7 @@ module.exports = class MenuController {
           case 'Delete contact':
             this.delete(contact);
             break;
-          case 'Main Menu':
+          case 'Main menu':
             this.main();
             break;
           default:
