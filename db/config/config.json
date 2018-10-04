@@ -1,16 +1,17 @@
 {
   "development": {
-    "username": "postgres",
+    "port": 5432,
+    "username": "postgress",
     "password": null,
-    "database": "address-book-dev",
+    "database": "addressBook",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "logging": false
   },
   "test": {
-    "username": "postgres",
+    "username": "postgress",
     "password": null,
-    "database": "address-book-test",
+    "database": "addressBookTest",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "logging": false
