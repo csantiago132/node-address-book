@@ -1,0 +1,6 @@
+!.*
+**/*_spec.js
+coverage/
+spec/**
+./node_modules/*
+
