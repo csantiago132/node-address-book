@@ -5,18 +5,25 @@
   "main": "app.js",
   "scripts": {
     "eslint:js": "./node_modules/.bin/eslint **/*.js  --fix --quiet",
+    "prettier-md": "prettier --config .prettierrc.json --print-width 80 --quiet --write *.md",
+    "prettier-json": "prettier --config  .prettierrc.json --quiet --write *.json",
     "test": "export NODE_ENV=test && jasmine"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": ["yarn run lint:eslint:js", "git add"],
+    "*.json": ["yarn run prettier-json", "git add"],
+    "*.md": ["yarn run prettier-md", "git add"]
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/csantiago132/node-address-book.git"
   },
-  "keywords": [
-    "nodejs",
-    "node",
-    "address-book",
-    "cli"
-  ],
+  "keywords": ["nodejs", "node", "address-book", "cli"],
   "author": "Carlos Santiago",
   "license": "ISC",
   "bugs": {
@@ -38,7 +45,9 @@
     "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^3.0.0",
+    "husky": "^1.1.0",
     "jasmine": "^3.1.0",
+    "lint-staged": "^7.3.0",
     "prettier": "1.14.3"
   }
 }
