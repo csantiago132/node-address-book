@@ -17,17 +17,6 @@ module.exports = class MenuController {
         ],
       },
     ];
-
-    this.searchQuestions = [
-      {
-        type: 'input',
-        name: 'name',
-        message: 'Name of contact to search - ',
-        validate(val) {
-          return val !== '';
-        },
-      },
-    ];
     this.book = new ContactController();
   }
 
@@ -150,15 +139,54 @@ module.exports = class MenuController {
 
   showContact(contact) {
     this._printContact(contact);
+    inquirer
+      .prompt(this.book.showContactQuestions)
+      .then((answer) => {
+        switch (answer.selected) {
+          case 'Delete contact':
+            this.delete(contact);
+            break;
+          case 'Main Menu':
+            this.main();
+            break;
+          default:
+            console.log('Something went wrong.');
+            this.showContact(contact);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        this.showContact(contact);
+      });
   }
 
   _printContact(contact) {
     console.log(`
-      name: ${contact.name}
-      phone number: ${contact.phone}
-      email: ${contact.email}
-      ---------------`);
+    name: ${contact.name}
+    phone number: ${contact.phone}
+    email: ${contact.email}
+    ---------------`);
   }
+
+  delete(contact) {
+    inquirer
+      .prompt(this.book.deleteConfirmQuestions)
+      .then((answer) => {
+        if (answer.confirmation) {
+          this.book.delete(contact.id);
+          console.log('contact deleted!');
+          this.main();
+        } else {
+          console.log('contact not deleted');
+          this.showContact(contact);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        this.main();
+      });
+  }
+
   getContactCount() {
     return this.book.length;
   }

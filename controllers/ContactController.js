@@ -28,6 +28,34 @@ module.exports = class ContactController {
         },
       },
     ];
+
+    this.showContactQuestions = [
+      {
+        type: 'list',
+        name: 'selected',
+        message: 'Please choose from an option below: ',
+        choices: ['Delete contact', 'Main menu'],
+      },
+    ];
+
+    this.deleteConfirmQuestions = [
+      {
+        type: 'confirm',
+        name: 'confirmation',
+        message: 'Are you sure you want to delete this contact?',
+      },
+    ];
+
+    this.searchQuestions = [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Name of contact to search - ',
+        validate(val) {
+          return val !== '';
+        },
+      },
+    ];
   }
 
   addContact(name, phone, email) {
@@ -71,5 +99,11 @@ module.exports = class ContactController {
       }
     }
     return null;
+  }
+
+  delete(id) {
+    return Contact.destroy({
+      where: { id },
+    });
   }
 };
