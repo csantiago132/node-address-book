@@ -13,7 +13,6 @@ module.exports = {
     es6: true,
   },
   parserOptions: {
-    commonjs: true,
     ecmaVersion: 2016
   },
   rules: {
@@ -29,30 +28,13 @@ module.exports = {
     'no-return-assign': 0,
     'no-param-reassign': 0,
     'no-use-before-define': 0,
-    'import/no-unresolved': [
-        2, 
-        {
-          commonjs: true, 
-          amd: true
-        }
-    ],
-    'import/imports-first': 2,
-    'import/newline-after-import': 2,
-    'import/no-dynamic-require': 0,
-    'import/no-extraneous-dependencies': 0,
-    'import/no-named-as-default': 0,
-    'import/no-unresolved': 2,
-    'import/no-webpack-loader-syntax': 0,
-    'import/prefer-default-export': 0
+    'prefer-template': 2
   },
   settings: {
     'import/resolver': {
       node: {
-        extensions: [
-          ".js"
-        ]
-      }
-    }
+        extensions: '.js'
+      }}
   },
 };
 
