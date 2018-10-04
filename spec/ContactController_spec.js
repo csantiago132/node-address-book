@@ -91,24 +91,27 @@ describe('ContactController', () => {
     });
 
     it("should return the contact if found", (done) => {
-      this.book.addContact(...alloy)
+      const addUser1 = Promise.resolve(this.book.addContact(...alloy))
+      const addUser2 = Promise.resolve(this.book.addContact(...magus))
+      
+      Promise.all([
+        addUser1,
+        addUser2
+      ])
       .then(() => {
-        this.book.addContact(...magus)
-        .then(() => {
-          this.book.getContacts()
-          .then((contacts) => {
-            let contact = this.book.iterativeSearch(contacts, "Magus Johnson");
-            expect(contact.name).toBe("Magus Johnson");
-            expect(contact.phone).toBe("101-010-101");
-            expect(contact.email).toBe("magus@squaresoft.com");
-            done();
-          })
-          .catch((err) => {
-            console.log(err);
-            done();
-          });
+        this.book.getContacts()
+        .then((contacts) => {
+          let contact = this.book.iterativeSearch(contacts, "Magus Johnson");
+          expect(contact.name).toBe("Magus Johnson");
+          expect(contact.phone).toBe("101-010-101");
+          expect(contact.email).toBe("magus@squaresoft.com");
+          done();
+        })
+        .catch((err) => {
+          console.log(err);
+          done();
         });
-      });
+      })
     });
 
   });
