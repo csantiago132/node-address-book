@@ -1,0 +1,19 @@
+{
+  "development": {
+    "port": 5432,
+    "username": "postgress",
+    "password": null,
+    "database": "addressBook",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "logging": false
+  },
+  "test": {
+    "username": "postgress",
+    "password": null,
+    "database": "addressBookTest",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "logging": false
+  }
+}
