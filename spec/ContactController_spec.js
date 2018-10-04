@@ -91,8 +91,8 @@ describe('ContactController', () => {
     });
 
     it("should return the contact if found", (done) => {
-      const addUser1 = Promise.resolve(this.book.addContact(...alloy))
-      const addUser2 = Promise.resolve(this.book.addContact(...magus))
+      const addUser1 = this.book.addContact(...alloy);
+      const addUser2 = this.book.addContact(...magus);
       
       Promise.all([
         addUser1,
