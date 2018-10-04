@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7afd2cdf1338428d9da297b38918d683)](https://app.codacy.com/app/csantiago132/node-address-book?utm_source=github.com&utm_medium=referral&utm_content=csantiago132/node-address-book&utm_campaign=Badge_Grade_Dashboard)
 [![CircleCI](https://circleci.com/gh/csantiago132/node-address-book.svg?style=svg)](https://circleci.com/gh/csantiago132/node-address-book)
 
 # Node Address Book
