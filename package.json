@@ -4,6 +4,7 @@
   "description": "An address book application that will allow you to store and retrieve contacts by using the command line application (CLI) using Node",
   "main": "app.js",
   "scripts": {
+    "migrateDb": "sequelize db:migrate && sequelize db:migrate --env test",
     "eslint:js": "./node_modules/.bin/eslint **/*.js  --fix --quiet",
     "prettier-md": "prettier --config .prettierrc.json --print-width 80 --quiet --write *.md",
     "prettier-json": "prettier --config  .prettierrc.json --quiet --write *.json",
