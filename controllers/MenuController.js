@@ -8,7 +8,12 @@ module.exports = class MenuController {
         type: 'list',
         name: 'mainMenuChoice',
         message: 'Please choose from an option below: ',
-        choices: ['Add New Contact', 'Just want to know the date', 'Exit'],
+        choices: [
+          'Add New Contact',
+          'View All Contacts',
+          'Just want to know the date',
+          'Exit',
+        ],
       },
     ];
     this.book = new ContactController();
@@ -22,6 +27,9 @@ module.exports = class MenuController {
         switch (response.mainMenuChoice) {
           case 'Add New Contact':
             this.addContact();
+            break;
+          case 'View All Contacts':
+            this.getContacts();
             break;
           case 'Exit':
             this.exit();
@@ -83,6 +91,26 @@ module.exports = class MenuController {
   exit() {
     console.log('Thanks for using Node Address Book!');
     process.exit();
+  }
+
+  getContacts() {
+    this.clear();
+    this.book
+      .getContacts()
+      .then((contacts) => {
+        for (let contact of contacts) {
+          console.log(`
+        name: ${contact.name}
+        phone number: ${contact.phone}
+        email: ${contact.email}
+        ---------------`);
+        }
+        this.main();
+      })
+      .catch((error) => {
+        console.log(error);
+        this.main();
+      });
   }
 
   getContactCount() {
