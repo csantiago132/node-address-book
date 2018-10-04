@@ -84,8 +84,8 @@ describe('ContactController', () => {
             expect(this.book.iterativeSearch(contacts, "Alloy Rodriguez")).toBeNull();
             done();
           })
-          .catch((err) => {
-            console.log(err);
+          .catch((error) => {
+            console.log(error);
             done();
           });
         });
@@ -108,8 +108,8 @@ describe('ContactController', () => {
             expect(contact.email).toBe("magus@squaresoft.com");
             done();
           })
-          .catch((err) => {
-            console.log(err);
+          .catch((error) => {
+            console.log(error);
             done();
           });
         })
@@ -117,12 +117,12 @@ describe('ContactController', () => {
     });
 
     describe("#binarySearch()", () => {
-        const sort = (contacts) => (
-          contacts.sort((a, b) => {
-            if(a.name > b.name) return 1;
-              else if(a.name < b.name) return -1;
-              else return 0;
-            })
+      const sort = (contacts) => (
+        contacts.sort((a, b) => {
+          if(a.name > b.name) return 1;
+            else if(a.name < b.name) return -1;
+            else return 0;
+          })
         )
  
         it("should return null when called with an empty array", () => {
@@ -137,8 +137,8 @@ describe('ContactController', () => {
               expect(this.book.binarySearch(sort(contacts), "Alloy Rodriguez")).toBeNull();
               done();
             })
-            .catch((err) => {
-              console.log(err);
+            .catch((error) => {
+              console.log(error);
               done();
             });
           })
@@ -175,6 +175,39 @@ describe('ContactController', () => {
         });
     });
 
-  });
+    describe("#search()", () => {
+      it("should return null when a contact was not found", (done) => {
+        this.book.addContact(...zelda)
+        .then(() => {
+          this.book.search("Solid Snake")
+          .then((contact) => {
+            expect(contact).toBeNull();
+            done();
+          })
+          .catch((error) => {
+            console.log(error);
+            done();
+          });
+        });
+      });
 
+      it("should return the contact when found", (done) => {
+        this.book.addContact(...snake)
+        .then(() => {
+          this.book.search("Solid Snake")
+          .then((contact) => {
+            expect(contact).not.toBeNull();
+            expect(contact.name).toBe("Solid Snake");
+            expect(contact.phone).toBe("100-100-100");
+            expect(contact.email).toBe("snake@konami.com");
+            done();
+          })
+          .catch((error) => {
+            console.log(error);
+            done();
+          });
+        });
+      });
+    });
+  });
 });
