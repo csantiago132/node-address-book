@@ -38,6 +38,12 @@ module.exports = class ContactController {
     return Contact.findAll();
   }
 
+  search(name) {
+    return Contact.findOne({
+      where: { name },
+    });
+  }
+
   iterativeSearch(contacts, target) {
     for (let contact of contacts) {
       if (contact.name.toLowerCase() === target.toLowerCase()) {
