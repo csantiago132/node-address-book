@@ -80,3 +80,23 @@ In the near future, I want to add:
 - [pg-hstore](https://github.com/scarney81/pg-hstore)
 - [Sequelize](https://github.com/sequelize/sequelize#readme)
 - [PostgreSQL](https://www.openscg.com/bigsql/postgresql/installers.jsp/)
+
+## Versioning
+
+I use [SemVer](http://semver.org/) for versioning. For the versions available,
+see the
+[tags on this repository](https://github.com/csantiago132/node-address-book/releases).
+
+## Authors
+
+- **Carlos Santiago** - _Initial work_ -
+  [csantiago132](https://github.com/csantiago132)
+
+## License
+
+This project is licensed under the MIT License - see the
+[LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+- **Cory Trimm** - _for mentoring_ - [github](https://github.com/ctrimm)
