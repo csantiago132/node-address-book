@@ -48,8 +48,10 @@ local machine for development and testing purposes.
 
 ```json
   "development": {
-    "port": YOUR_PORT_NUMBER_HERE,
+    "port": "YOUR_PORT_NUMBER_HERE",
 ```
+
+- **Value has to be a Number, not a String**
 
 8. Run the migration scripts `yarn run migrateDb` on the terminal
 
