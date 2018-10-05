@@ -53,3 +53,21 @@ address book thru Node.js using Sequelize on a PostgreSQL database.
 - this will run `sequelize db:migrate && sequelize db:migrate --env test`
 
 **Your database is now ready to accept contacts.**
+
+## Features
+
+- [x] CircleCI integration
+- [x] Jazmine test environment
+- [x] Husky pre-commit hooks (to lint and format the code)
+- [x] Add new contacts to the database
+- [x] View all contacts stored on the database
+- [x] Search for contacts stored on the database
+- [x] Gets you current date and time
+
+## TODO List
+
+In the near future, I want to add:
+
+- [ ] Increase tests stuites
+- [ ] Add coverage report thru Coveralls
+- [ ] Build a front-end and create an UI for the application
