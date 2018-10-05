@@ -1,4 +1,3 @@
-
 const prettierOptions = require('./.prettierrc.json');
 
 module.exports = {
@@ -13,7 +12,7 @@ module.exports = {
     es6: true,
   },
   parserOptions: {
-    ecmaVersion: 2016
+    ecmaVersion: 2016,
   },
   rules: {
     'prettier/prettier': ['error', prettierOptions],
@@ -28,14 +27,12 @@ module.exports = {
     'no-return-assign': 0,
     'no-param-reassign': 0,
     'no-use-before-define': 0,
-    'prefer-template': 2
   },
   settings: {
     'import/resolver': {
       node: {
-        extensions: '.js'
-      }}
+        extensions: '.js',
+      },
+    },
   },
 };
-
-
