@@ -16,13 +16,16 @@ address book thru Node.js using Sequelize on a PostgreSQL database.
 
 ## Getting Started
 
+These instructions will get you a copy of the project up and running on your
+local machine for development and testing purposes.
+
 1. Clone this repo using
    `git clone https://github.com/csantiago132/node-address-book.git`
 2. Move to the appropriate directory: `cd node-address-book`
 3. Run `yarn install` to install dependencies
 4. If you don't have Postgres installed on your computer, please
    [download](https://www.openscg.com/bigsql/postgresql/installers.jsp/) and
-   install using the installer for your operating system.
+   install using the installer for your operating system
 5. Create the databases for the application by running the `createdb` command:
 
 - A database to use in the application
@@ -39,7 +42,7 @@ address book thru Node.js using Sequelize on a PostgreSQL database.
 - If your postgres folder does not have a version number, run
   `pg_ctl -D /usr/local/var/postgres start`
 
-7. On the terminal, note the port number where Postgres listens for requests.
+7. On the terminal, note the port number where Postgres listens for requests
 
 - Go to `db/config/config.json` and place that number in the `port` property:
 
@@ -52,7 +55,7 @@ address book thru Node.js using Sequelize on a PostgreSQL database.
 
 - this will run `sequelize db:migrate && sequelize db:migrate --env test`
 
-**Your database is now ready to accept contacts.**
+**Your database is now ready to accept contacts**
 
 ## Features
 
@@ -68,8 +71,8 @@ address book thru Node.js using Sequelize on a PostgreSQL database.
 
 In the near future, I want to add:
 
-- [ ] Increase tests stuites
-- [ ] Add coverage report thru Coveralls
+- [ ] Increase and refactor tests suites
+- [ ] Add coverage reports thru Coveralls
 - [ ] Build a front-end and create an UI for the application
 
 ## Built With
@@ -95,7 +98,7 @@ see the
 ## License
 
 This project is licensed under the MIT License - see the
-[LICENSE.md](LICENSE.md) file for details
+[LICENSE.md](LICENSE.md) file for details.
 
 ## Acknowledgments
 
