@@ -8,6 +8,12 @@
 A CLI application that will allow you to store and retrieve contacts from an
 address book thru Node.js using Sequelize on a PostgreSQL database.
 
+## Prerequisites
+
+> - PostgreSQL
+> - Yarn >= 1.5.x
+> - Node >=10.x
+
 ## Getting Started
 
 TODO: These instructions will get you a copy of the project up and running on
