@@ -71,3 +71,12 @@ In the near future, I want to add:
 - [ ] Increase tests stuites
 - [ ] Add coverage report thru Coveralls
 - [ ] Build a front-end and create an UI for the application
+
+## Built With
+
+- [NodeJS](https://github.com/nodejs/node)
+- [node-postgres](https://github.com/brianc/node-postgres)
+- [inquirer](https://github.com/SBoudrias/Inquirer.js/)
+- [pg-hstore](https://github.com/scarney81/pg-hstore)
+- [Sequelize](https://github.com/sequelize/sequelize#readme)
+- [PostgreSQL](https://www.openscg.com/bigsql/postgresql/installers.jsp/)
