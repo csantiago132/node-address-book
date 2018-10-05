@@ -16,9 +16,40 @@ address book thru Node.js using Sequelize on a PostgreSQL database.
 
 ## Getting Started
 
-TODO: These instructions will get you a copy of the project up and running on
-your local machine for development and testing purposes.
+1. Clone this repo using
+   `git clone https://github.com/csantiago132/node-address-book.git`
+2. Move to the appropriate directory: `cd node-address-book`
+3. Run `yarn install` to install dependencies
+4. If you don't have Postgres installed on your computer, please
+   [download](https://www.openscg.com/bigsql/postgresql/installers.jsp/) and
+   install using the installer for your operating system.
+5. Create the databases for the application by running the `createdb` command:
 
-### Prerequisites
+- A database to use in the application
+- a database for testing the application
 
-> Node v10.11
+```bash
+  createdb -U postgress -w addressBook
+  createdb -U postgress -w addressBookTest
+```
+
+6. start your database by running the following command:
+   `pg_ctl -D /usr/local/var/postgres[VERSION NUMBER HERE] start`
+
+- If your postgres folder does not have a version number, run
+  `pg_ctl -D /usr/local/var/postgres start`
+
+7. On the terminal, note the port number where Postgres listens for requests.
+
+- Go to `db/config/config.json` and place that number in the `port` property:
+
+```json
+  "development": {
+    "port": YOUR_PORT_NUMBER_HERE,
+```
+
+8. Run the migration scripts `yarn run migrateDb` on the terminal
+
+- this will run `sequelize db:migrate && sequelize db:migrate --env test`
+
+**Your database is now ready to accept contacts.**
