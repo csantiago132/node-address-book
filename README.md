@@ -4,7 +4,7 @@
 
 # Node Address Book
 
-<p align="center"><img src="preview.png" alt="node-address-book preview"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/csantiago132/node-address-book/develop/preview.png" alt="node-address-book preview"/></p>
 
 A CLI application that will allow you to store and retrieve contacts from an
 address book thru Node.js using Sequelize on a PostgreSQL database.
